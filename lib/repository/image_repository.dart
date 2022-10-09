@@ -13,7 +13,7 @@ class ImageRepository {
     };
 
     //Use Multipart Form to upload a file
-    final formData = FormData.fromMap({
+    final body = FormData.fromMap({
       'image': await MultipartFile.fromFile(
         file.path,
         filename: basename(file.path),
@@ -22,7 +22,7 @@ class ImageRepository {
 
     return await HTTPService.post(
       route: WebRoutes.UPLOAD_IMAGE,
-      body: formData,
+      body: body,
       headers: headers,
     );
   }

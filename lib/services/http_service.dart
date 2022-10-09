@@ -13,8 +13,10 @@ class HTTPService {
     Map<String, dynamic>? params,
     Map<String, dynamic>? headers,
   }) async {
+    String url = '$_BASE_URL$route';
+
     Response response = await Dio().post(
-      '$_BASE_URL$route',
+      '$url',
       data: body,
       queryParameters: params,
       options: Options(
